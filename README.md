@@ -25,3 +25,4 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 # weather-app
 # weather-app
 # weather-app
+# weather-app
