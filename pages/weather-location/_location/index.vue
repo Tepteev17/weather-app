@@ -57,7 +57,7 @@
 						</h2>
 						<h2 class="text-xl font-bold tracking-tight text-white sm:text-5xl text-white">
 							<p class="mt-6 text-4xl leading-8 text-gray-300">
-								{{ (locationData.main.temp - 273.15).toFixed(2) }} ℃
+								{{ KelvinToCelsius(locationData.main.temp) }} ℃
 							</p>
 						</h2>
 					</div>
@@ -95,7 +95,10 @@
 </template>
 
 <script>
+import global from '@/mixins/global'
+
 export default {
+	mixins:[ global ],
 	layout:'layout-info-weather',
 	async fetch({ store, params }) {
 		await store.dispatch('location-info/fetchData', params)
