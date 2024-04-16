@@ -2,12 +2,12 @@ export const state = () => {
     locationData: {}
 	locationDataDaily: {}
 	currentLocation: null
+
 }
 
 export const mutations = {
     setLocationData(state, locationData){
         state.locationData = locationData
-        
     },
 	setLocationDataDaily(state, locationDataDaily){
 		state.locationDataDaily = locationDataDaily

@@ -59,6 +59,7 @@
   </script>
 <script>
 export default {
-	layout:'layout-info-weather',
+	layout:'layout-info-weather'
 }
+
 </script>

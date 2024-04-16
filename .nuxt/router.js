@@ -7,6 +7,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 const _1b9ad372 = () => interopDefault(import('../pages/about.vue' /* webpackChunkName: "pages/about" */))
 const _11a596b7 = () => interopDefault(import('../pages/company.vue' /* webpackChunkName: "pages/company" */))
 const _198ec673 = () => interopDefault(import('../pages/features.vue' /* webpackChunkName: "pages/features" */))
+const _48dbd7ba = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
 const _11ea710c = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _214b012c = () => interopDefault(import('../pages/weather-location/_location/index.vue' /* webpackChunkName: "pages/weather-location/_location/index" */))
 const _0867ff36 = () => interopDefault(import('../pages/weather-location/_location/daily/index.vue' /* webpackChunkName: "pages/weather-location/_location/daily/index" */))
@@ -35,6 +36,10 @@ export const routerOptions = {
     path: "/features",
     component: _198ec673,
     name: "features"
+  }, {
+    path: "/login",
+    component: _48dbd7ba,
+    name: "login"
   }, {
     path: "/",
     component: _11ea710c,

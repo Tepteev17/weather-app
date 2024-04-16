@@ -21,6 +21,13 @@
     "_name": "_198ec673"
   },
   {
+    "name": "login",
+    "path": "/login",
+    "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_48dbd7ba"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/index.vue",

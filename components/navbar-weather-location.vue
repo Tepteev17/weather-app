@@ -78,13 +78,6 @@ export default {
     created(){
         const currentLocation = this.$store.getters['location-info/currentLocation']
         this.navigation.forEach(el => el.to = /weather-location/ +currentLocation.name + el.to);
-    },
-	computed:{
-        // getPathLocation(to) {
-        //     const currentLocation = this.$store.getters['location-info/currentLocation']
-        //     console.log('/weather-location/' + currentLocation.name + to)
-        //     return '/weather-location/' + currentLocation.name + to
-        // }
-	}
+    }
 }
 </script>
