@@ -1,5 +1,5 @@
 <template>
-	<client-only>
+	<client-only >
 		<div class="relative container mx-auto isolate overflow-hidden py-24 sm:py-32">
 			<div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
 				aria-hidden="true">
@@ -21,9 +21,7 @@
             17.9% 100%,
             27.6% 76.8%,
             76.1% 97.7%,
-            74.1% 44.1%
-          );
-        " />
+            74.1% 44.1%);" />
 			</div>
 			<div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
 				aria-hidden="true">
@@ -45,9 +43,7 @@
             17.9% 100%,
             27.6% 76.8%,
             76.1% 97.7%,
-            74.1% 44.1%
-          );
-        " />
+            74.1% 44.1%);" />
 			</div>
 			<div class="mx-auto  px-6 lg:px-8">
 				<div class="mx-auto  lg:mx-0">
@@ -98,25 +94,36 @@
 import global from '@/mixins/global'
 
 export default {
-	mixins:[ global ],
-	layout:'layout-info-weather',
+	data(){
+		return{
+			weatherData:null
+		}
+	},
+	mixins: [global],
+	// middleware:['auth'],
+	layout: 'layout-info-weather',
 	async fetch({ store, params }) {
 		await store.dispatch('location-info/fetchData', params)
-		const locationData = store.getters['location-info/locationData']
-		store.commit("location-info/setCurrentLocation", {name: locationData.name, coord: locationData.coord})		
+		const locationData = await store.getters['location-info/locationData']
+		console.log(store.commit)
+		store.commit("location-info/setCurrentLocation", { name: locationData.name, coord: locationData.coord })
 	},
-	computed:{
-		locationData(){
+	computed: {
+		locationData() {
 			return this.$store.getters['location-info/locationData']
 		},
-		stats(){
+		stats() {
 			const locationData = this.$store.getters['location-info/locationData']
-			return [
-				{ name: 'Humidity', value: locationData.main.humidity + ' %' },
-				{ name: 'Pressure', value: locationData.main.pressure },
-				{ name: 'Wind Speed', value: locationData.wind.speed + ' metr/sec' },
-				{ name: 'Min temp', value: (locationData.main.temp_min - 273.15).toFixed(2) },
-			]
+			if (locationData && locationData.main && locationData.wind) {
+				return [
+					{ name: 'Humidity', value: locationData.main.humidity + ' %' },
+					{ name: 'Pressure', value: locationData.main.pressure },
+					{ name: 'Wind Speed', value: locationData.wind.speed + ' metr/sec' },
+					{ name: 'Min temp', value: (locationData.main.temp_min - 273.15).toFixed(2) },
+				]
+			} else {
+				return []
+			}
 		}
 	}
 }

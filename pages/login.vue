@@ -48,9 +48,9 @@
 </template>
 <script>
 export default {
-    layout:'empty',
-    methods:{
-        onSubmit(){
+    layout: 'empty',
+    methods: {
+        onSubmit() {
             this.$store.dispatch('login')
             this.$router.push('/')
         }

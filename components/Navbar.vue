@@ -5,7 +5,7 @@
                     <nuxt-link to="/" class="-m-1.5 p-1.5">
                         <span class="sr-only">Your Company</span>
                         <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                            alt="" />
+                            alt=""/>
                     </nuxt-link>
                 </div>
                 <div class="flex lg:hidden">
@@ -23,8 +23,8 @@
                         class=" text-sm font-semibold leading-6">{{ item.name }}</nuxt-link>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-                            aria-hidden="true">&rarr;</span></a>
+                    <nuxt-link to="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+                            aria-hidden="true">&rarr;</span></nuxt-link>
                 </div>
             </nav>
             <!-- <div as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">

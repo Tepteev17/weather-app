@@ -33,13 +33,6 @@
 import { ref } from 'vue'
 
 let location = ref()
-
-// function getDataWeather(location){
-// 	if(location != ''){
-
-// 	}
-// 	router.push('/weather-location/' + location)
-// }
 </script>
 <script>
 export default {

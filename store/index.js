@@ -1,6 +1,6 @@
-export const state = () => {
+export const state = () => ({
 	token: null
-}
+})
 
 export const mutations = {
 	setToken(state, token){
@@ -13,13 +13,13 @@ export const mutations = {
 
 export const actions = {
 	login({commit}){
-		commit('setToken', true)
+		commit('setToken', 'your_token')
 	},
 	logout({commit}){
-		commit('clearToken', false)
+		commit('clearToken')
 	}
 }
 
 export const getters = {
-	hasToken: s => !!s.token
-}
+	hasToken: s => s.token !== null
+} 
