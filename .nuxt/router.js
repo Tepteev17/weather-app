@@ -12,6 +12,7 @@ const _11ea710c = () => interopDefault(import('../pages/index.vue' /* webpackChu
 const _214b012c = () => interopDefault(import('../pages/weather-location/_location/index.vue' /* webpackChunkName: "pages/weather-location/_location/index" */))
 const _0867ff36 = () => interopDefault(import('../pages/weather-location/_location/daily/index.vue' /* webpackChunkName: "pages/weather-location/_location/daily/index" */))
 const _fcf8f0ac = () => interopDefault(import('../pages/weather-location/_location/monthly/index.vue' /* webpackChunkName: "pages/weather-location/_location/monthly/index" */))
+const _7a971ff2 = () => interopDefault(import('../pages/weather-location/_location/daily/weatherDayItem.vue' /* webpackChunkName: "pages/weather-location/_location/daily/weatherDayItem" */))
 
 const emptyFn = () => {}
 
@@ -56,6 +57,10 @@ export const routerOptions = {
     path: "/weather-location/:location?/monthly",
     component: _fcf8f0ac,
     name: "weather-location-location-monthly"
+  }, {
+    path: "/weather-location/:location?/daily/weatherDayItem",
+    component: _7a971ff2,
+    name: "weather-location-location-daily-weatherDayItem"
   }],
 
   fallback: false

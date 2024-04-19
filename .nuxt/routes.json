@@ -3,48 +3,63 @@
     "name": "about",
     "path": "/about",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/about.vue",
-    "chunkName": "pages/about"
+    "chunkName": "pages/about",
+    "_name": "_1b9ad372"
   },
   {
     "name": "company",
     "path": "/company",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/company.vue",
-    "chunkName": "pages/company"
+    "chunkName": "pages/company",
+    "_name": "_11a596b7"
   },
   {
     "name": "features",
     "path": "/features",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/features.vue",
-    "chunkName": "pages/features"
+    "chunkName": "pages/features",
+    "_name": "_198ec673"
   },
   {
     "name": "login",
     "path": "/login",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/login.vue",
-    "chunkName": "pages/login"
+    "chunkName": "pages/login",
+    "_name": "_48dbd7ba"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_11ea710c"
   },
   {
     "name": "weather-location-location",
     "path": "/weather-location/:location",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/weather-location/_location/index.vue",
-    "chunkName": "pages/weather-location/_location/index"
+    "chunkName": "pages/weather-location/_location/index",
+    "_name": "_214b012c"
   },
   {
     "name": "weather-location-location-daily",
     "path": "/weather-location/:location?/daily",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/weather-location/_location/daily/index.vue",
-    "chunkName": "pages/weather-location/_location/daily/index"
+    "chunkName": "pages/weather-location/_location/daily/index",
+    "_name": "_0867ff36"
   },
   {
     "name": "weather-location-location-monthly",
     "path": "/weather-location/:location?/monthly",
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/weather-location/_location/monthly/index.vue",
-    "chunkName": "pages/weather-location/_location/monthly/index"
+    "chunkName": "pages/weather-location/_location/monthly/index",
+    "_name": "_fcf8f0ac"
+  },
+  {
+    "name": "weather-location-location-daily-weatherDayItem",
+    "path": "/weather-location/:location?/daily/weatherDayItem",
+    "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/weather-location/_location/daily/weatherDayItem.vue",
+    "chunkName": "pages/weather-location/_location/daily/weatherDayItem",
+    "_name": "_7a971ff2"
   }
 ]

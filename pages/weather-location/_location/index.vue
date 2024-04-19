@@ -105,7 +105,6 @@ export default {
 	async fetch({ store, params }) {
 		await store.dispatch('location-info/fetchData', params)
 		const locationData = await store.getters['location-info/locationData']
-		console.log(store.commit)
 		store.commit("location-info/setCurrentLocation", { name: locationData.name, coord: locationData.coord })
 	},
 	computed: {
