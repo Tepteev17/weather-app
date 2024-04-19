@@ -22,8 +22,12 @@
                     <nuxt-link exact no-prefetch active-class="text-white" v-for="item in navigation" :key="item.name" :to="item.to" 
                         class=" text-sm font-semibold leading-6">{{ item.name }}</nuxt-link>
                 </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end" v-if="!isHasToken">
                     <nuxt-link to="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+                            aria-hidden="true">&rarr;</span></nuxt-link>
+                </div>
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end" @click="logout" v-else>
+                    <nuxt-link to="/login?massage=logout" class="text-sm font-semibold leading-6 text-gray-900" > Logout <span
                             aria-hidden="true">&rarr;</span></nuxt-link>
                 </div>
             </nav>
@@ -69,4 +73,19 @@ const navigation = [
 ];
 
 const mobileMenuOpen = ref(false);
+</script>
+<script>
+export default {
+    methods:{
+        logout(){
+            this.$store.dispatch('logout')
+
+        }
+    },
+    computed:{
+        isHasToken(){
+            return this.$store.getters.hasToken
+        }
+    }
+}
 </script>

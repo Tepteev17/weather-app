@@ -16,6 +16,7 @@ export const actions = {
 		commit('setToken', 'your_token')
 	},
 	logout({commit}){
+		console.log('logout')
 		commit('clearToken')
 	}
 }

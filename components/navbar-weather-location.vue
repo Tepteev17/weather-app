@@ -22,8 +22,12 @@
                     <nuxt-link exact no-prefetch active-class="text-white" v-for="item in navigation" :key="item.name" :to="item.to" 
                         class=" text-sm font-semibold leading-6">{{ item.name }}</nuxt-link>
                 </div>
-                <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end" v-if="!isHasToken">
                     <nuxt-link to="/login" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
+                            aria-hidden="true">&rarr;</span></nuxt-link>
+                </div>
+                <div class="hidden lg:flex lg:flex-1 lg:justify-end" v-else>
+                    <nuxt-link to="" class="text-sm font-semibold leading-6 text-gray-900" @click="logout">Logout <span
                             aria-hidden="true">&rarr;</span></nuxt-link>
                 </div>
             </nav>
@@ -82,6 +86,15 @@ export default {
     methods:{
         clearData(){
             this.$store.dispatch('location-info/clearDataLocation')
+        },
+        logout({}){
+            this.$store.dispatch('logout')
+            redirect('/login?massage=logout')
+        }
+    },
+    computed:{
+        isHasToken(){
+            return this.$store.getters.hasToken
         }
     }
 }

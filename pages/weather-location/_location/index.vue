@@ -100,7 +100,7 @@ export default {
 		}
 	},
 	mixins: [global],
-	// middleware:['auth'],
+	middleware:['auth'],
 	layout: 'layout-info-weather',
 	async fetch({ store, params }) {
 		await store.dispatch('location-info/fetchData', params)
