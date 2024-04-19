@@ -41,7 +41,15 @@ export default {
   ],
   
   axios: {
+    // Do away with the baseUrl when using proxy
     proxy: true
+  },
+  proxy: {
+    "/api": {
+      target: "https://api.openweathermap.org/",
+      pathRewrite: { "^/api": "" },
+      changeOrigin: true
+    }
   },
   /*
   ** Build configuration

@@ -20,7 +20,7 @@ export const mutations = {
 export const actions = {
     async getCoordinates({state}, location) {
         const API = state.API_KEY
-        const coordinates = await this.$axios.$get(`http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${API}`)
+        const coordinates = await this.$axios.$get('/api' + `/geo/1.0/direct?q=${location}&limit=1&appid=${API}`)
         const coordinatesLat = coordinates[0].lat.toFixed(2)
         const coordinatesLon = coordinates[0].lon.toFixed(2)
         return { coordinatesLat, coordinatesLon }
@@ -28,15 +28,15 @@ export const actions = {
     async fetchData({state, dispatch, commit}, params) {
 		const API = state.API_KEY,
         { coordinatesLat, coordinatesLon } = await dispatch("getCoordinates", params.location),
-		path = `https://api.openweathermap.org/data/2.5/weather?lat=${coordinatesLat}&lon=${coordinatesLon}&appid=${API}`,
-        locationData = await this.$axios.$get(path)
+		path = `/data/2.5/weather?lat=${coordinatesLat}&lon=${coordinatesLon}&appid=${API}`,
+        locationData = await this.$axios.$get('/api' + path)
         commit('setLocationData', locationData)
     },
     async fetchLocationDataDaily({state, dispatch, commit}, params) {
         const API = state.API_KEY,
         { coordinatesLat, coordinatesLon } = await dispatch("getCoordinates", params.location),
-        path = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinatesLat}&lon=${coordinatesLon}&appid=${API}`,
-        locationDataDaily = await this.$axios.$get(path)
+        path = `/data/2.5/forecast?lat=${coordinatesLat}&lon=${coordinatesLon}&appid=${API}`,
+        locationDataDaily = await this.$axios.$get('/api' + path)
         commit('setLocationDataDaily', locationDataDaily)
     }
 }
