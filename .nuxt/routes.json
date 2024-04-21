@@ -54,12 +54,5 @@
     "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/weather-location/_location/monthly/index.vue",
     "chunkName": "pages/weather-location/_location/monthly/index",
     "_name": "_fcf8f0ac"
-  },
-  {
-    "name": "weather-location-location-daily-weatherDayItem",
-    "path": "/weather-location/:location?/daily/weatherDayItem",
-    "component": "/Users/al_tepteev/Developing/front-end/weather-nuxt/pages/weather-location/_location/daily/weatherDayItem.vue",
-    "chunkName": "pages/weather-location/_location/daily/weatherDayItem",
-    "_name": "_7a971ff2"
   }
 ]

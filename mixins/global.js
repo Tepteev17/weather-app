@@ -1,7 +1,7 @@
 export default{
     methods:{
       KelvinToCelsius(temp) {
-        return (temp - 273.15).toFixed(2)
+        return (temp - 273.15).toFixed(1)
       },
       formatedDate(inputDate) {
         const options = { year: 'numeric', month: 'short', day: '2-digit' };

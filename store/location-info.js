@@ -26,18 +26,26 @@ export const actions = {
         return { coordinatesLat, coordinatesLon }
     },
     async fetchData({state, dispatch, commit}, params) {
-		const API = state.API_KEY,
-        { coordinatesLat, coordinatesLon } = await dispatch("getCoordinates", params.location),
-		path = `/data/2.5/weather?lat=${coordinatesLat}&lon=${coordinatesLon}&appid=${API}`,
-        locationData = await this.$axios.$get('/api' + path)
-        commit('setLocationData', locationData)
+        try{
+            const API = state.API_KEY,
+            { coordinatesLat, coordinatesLon } = await dispatch("getCoordinates", params.location),
+            path = `/data/2.5/weather?lat=${coordinatesLat}&lon=${coordinatesLon}&appid=${API}`,
+            locationData = await this.$axios.$get('/api' + path)
+            commit('setLocationData', locationData)
+        }catch(e){
+            console.log(e)
+        }
     },
     async fetchLocationDataDaily({state, dispatch, commit}, params) {
-        const API = state.API_KEY,
-        { coordinatesLat, coordinatesLon } = await dispatch("getCoordinates", params.location),
-        path = `/data/2.5/forecast?lat=${coordinatesLat}&lon=${coordinatesLon}&appid=${API}`,
-        locationDataDaily = await this.$axios.$get('/api' + path)
-        commit('setLocationDataDaily', locationDataDaily)
+        try{
+            const API = state.API_KEY,
+            { coordinatesLat, coordinatesLon } = await dispatch("getCoordinates", params.location),
+            path = `/data/2.5/forecast?lat=${coordinatesLat}&lon=${coordinatesLon}&appid=${API}`,
+            locationDataDaily = await this.$axios.$get('/api' + path)
+            commit('setLocationDataDaily', locationDataDaily)
+        }catch(e){
+            console.log(e)
+        }
     }
 }
 

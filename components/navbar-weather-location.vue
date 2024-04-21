@@ -27,7 +27,7 @@
                             aria-hidden="true">&rarr;</span></nuxt-link>
                 </div>
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end" v-else>
-                    <nuxt-link to="" class="text-sm font-semibold leading-6 text-gray-900" @click="logout">Logout <span
+                    <nuxt-link to="/login?massage=logout" class="text-sm font-semibold leading-6 text-gray-900" @click="logout">Logout <span
                             aria-hidden="true">&rarr;</span></nuxt-link>
                 </div>
             </nav>
@@ -89,7 +89,6 @@ export default {
         },
         logout({}){
             this.$store.dispatch('logout')
-            redirect('/login?massage=logout')
         }
     },
     computed:{
