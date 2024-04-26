@@ -1,7 +1,9 @@
+import { getters } from "../store/location-info";
+
 export default{
     methods:{
       KelvinToCelsius(temp) {
-        return (temp - 273.15).toFixed(1)
+        return (temp - 273.15).toFixed(0)
       },
       formatedDate(inputDate) {
         const options = { year: 'numeric', month: 'short', day: '2-digit' };
@@ -12,6 +14,9 @@ export default{
       },
       formatedTime(inputTime) {
         return inputTime.slice(11, 16)
+      },
+      formatedTime24(inputTime,times) {
+        return times['en'][inputTime.slice(11, 16)]
       },
       pressureFormatedToMercury(pressure) {
         return Math.round(pressure * 7.5006 * Math.pow(10, -1))

@@ -1,5 +1,6 @@
 export const state = () => ({
-	token: null
+	token: 'your_token',
+	lang:'ru'
 })
 
 export const mutations = {
@@ -16,11 +17,11 @@ export const actions = {
 		commit('setToken', 'your_token')
 	},
 	logout({commit}){
-		console.log('logout')
 		commit('clearToken')
 	}
 }
 
 export const getters = {
-	hasToken: s => s.token !== null
+	hasToken: s => s.token !== null,
+	lang: s => s.lang
 } 

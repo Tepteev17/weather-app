@@ -1,8 +1,8 @@
 <template>
 	<div class="py-2 sm:py-8 " v-if="locationDataDailyList">
-		<client-only >
+		<client-only>
 		<div class="w-full mx-auto pt-10 px-2 lg:px-8 ">
-			<h2 class="text-2xl md:text-6xl font-bold tracking-tight text-white sm:text-sm">
+			<h2 class="text-5xl md:text-6xl font-bold tracking-tight text-white ">
 				{{ locationDataDailyList.city.name }}
 			</h2>
 			<weatherDailyItem
@@ -40,14 +40,18 @@ export default {
 		},
 		restructLocationData() {
 			const data = this.$store.getters['location-info/locationDataDaily'].list
+			const countryTime =  this.$store.getters['location-info/times'][this.$store.getters.lang]
 			const newData = (data) => {
 				const newDailyData = {}
 				for (let i = 0; i < data.length; i++) {
 					let date = (data[i].dt_txt).slice(0, 10)
+					let time = (data[i].dt_txt).slice(11, 16)
 					if (newDailyData[date] === undefined) {
 						newDailyData[date] = []
 					}
-					newDailyData[date].push(data[i])
+					if(time in countryTime){
+						newDailyData[date].push(data[i])
+					}
 				}
 				return newDailyData
 			}

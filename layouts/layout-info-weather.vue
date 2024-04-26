@@ -9,7 +9,7 @@
     </div>
   </template>
   <script>
-  import Navbar from "@/components/navbar-weather-location";
+  import Navbar from "@/components/navbar/navbar-weather-location";
   export default {
     components: {
       Navbar

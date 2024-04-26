@@ -48,14 +48,30 @@
 			<div class="mx-auto px-6 lg:px-8">
 				<div class="mx-auto lg:mx-0">
 					<div class="flex justify-between">
-						<h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl ">
-							{{ $route.params.location }}
+						<h2 class=" flex items-center text-4xl font-bold tracking-tight text-white sm:text-6xl ">
+							<div class="">{{ locationData.name }}</div>
+							<iconWeather :icon="locationData.weather[0]['icon']"/>
 						</h2>
 						<h2 class="text-xl font-bold tracking-tight text-white sm:text-5xl text-white">
 							<p class="mt-6 text-4xl leading-8 text-gray-300">
 								{{ KelvinToCelsius(locationData.main.temp) }} ℃
 							</p>
 						</h2>
+					</div>
+					<div class="flex items-center gap-x-5 mt-6 text-lg leading-8 text-gray-300 bg-gray-900 p-6 rounded-2xl">
+						<iconWeather :icon="locationData.weather[0]['icon']"/>
+						<div>{{ locationData.weather[0]['description'] || ' ' }}</div>
+					</div>
+					<div class="mx-auto mt-6  lg:mx-0 lg:max-w-none">
+						<dl class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 content-end">
+							<div v-for="stat in stats" :key="stat.name"
+								class="flex flex-col-reverse  bg-gray-900 p-6 rounded-2xl">
+								<dt class="text-base leading-7 text-gray-300">{{ stat.name }}</dt>
+								<dd class="text-2xl font-bold leading-9 tracking-tight text-indigo-500">
+									{{ stat.value }}
+								</dd>
+							</div>
+						</dl>
 					</div>
 					<p class="mt-6 text-lg leading-8 text-gray-300 bg-gray-900 p-6 rounded-2xl">
 						Coordintes: <br />
@@ -65,23 +81,8 @@
 						Lon:<span class="text-indigo-500 text-2xl">
 							{{ locationData.coord.lon }} °</span>
 					</p>
-					<p class=" hidden sm:block mt-6 text-lg  leading-8 text-gray-300 bg-gray-900 p-6 rounded-2xl">
-						Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-						cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-						aliqua.
-					</p>
 				</div>
-				<div class="mx-auto mt-6 max-w-2xl lg:mx-0 lg:max-w-none">
-					<dl class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 content-end">
-						<div v-for="stat in stats" :key="stat.name"
-							class="flex flex-col-reverse  bg-gray-900 p-6 rounded-2xl">
-							<dt class="text-base leading-7 text-gray-300">{{ stat.name }}</dt>
-							<dd class="text-2xl font-bold leading-9 tracking-tight text-indigo-500">
-								{{ stat.value }}
-							</dd>
-						</div>
-					</dl>
-				</div>
+				
 			</div>
 		</div>
 	</client-only>
@@ -89,7 +90,7 @@
 
 <script>
 import global from '@/mixins/global'
-
+import iconWeather from '@/components/ui/icon-weather.vue'
 export default {
 	data(){
 		return{
@@ -98,6 +99,7 @@ export default {
 	},
 	mixins: [global],
 	middleware:['auth'],
+	components:{iconWeather},
 	layout: 'layout-info-weather',
 	async fetch({ store, params }) {
 		await store.dispatch('location-info/fetchData', params)
